@@ -1,4 +1,9 @@
 import { Component } from "react";
+import { createRoot } from "react-dom/client";
+
+import "./index.css";
+import "tachyons";
+
 import CardList from "./CardList";
 import { robots } from "./robots";
 import SearchBox from "./SearchBox";
@@ -30,4 +35,6 @@ class App extends Component {
   }
 }
 
-export default App;
+const container = document.getElementById("root");
+const root = createRoot(container);
+root.render(<App />);
