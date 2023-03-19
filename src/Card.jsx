@@ -10,7 +10,7 @@ const Card = (props) => {
         <p>{props.email}</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card

@@ -9,7 +9,7 @@ const SearchBox = ({ searchChange }) => {
         onChange={searchChange}
       />
     </div>
-  );
-};
+  )
+}
 
-export default SearchBox;
+export default SearchBox
