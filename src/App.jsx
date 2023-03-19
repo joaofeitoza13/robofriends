@@ -1,40 +1,38 @@
-import { Component } from "react";
-import { createRoot } from "react-dom/client";
+import { useState, useEffect } from 'react'
+import { createRoot } from 'react-dom/client'
 
-import "./index.css";
-import "tachyons";
+import './index.css'
+import 'tachyons'
 
-import CardList from "./CardList";
-import { robots } from "./robots";
-import SearchBox from "./SearchBox";
+import CardList from './CardList'
+import { robots } from './robots'
+import SearchBox from './SearchBox'
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      robots: robots,
-      searchfield: "",
-    };
+const App = () => {
+  const [fetchedRobots, setRobots] = useState([])
+  const [searchField, setSearchField] = useState('')
+
+  useEffect(() => {
+    const filteredRobots = robots.filter((robot) =>
+      robot.name.toLowerCase().includes(searchField.toLowerCase())
+    )
+    setRobots(filteredRobots)
+  }, [searchField])
+
+  const onSearchChange = (event) => {
+    setSearchField(event.target.value)
   }
 
-  onSearchChange = (event) => {
-    console.log(event.target.value);
-    this.setState({ searchfield: event.target.value });
-  };
-  render() {
-    const filteredRobots = this.state.robots.filter((robot) =>
-      robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase())
-    );
-    return (
-      <div className="tc">
-        <h1 id="robotitle">Robo Friends</h1>
-        <SearchBox searchChange={this.onSearchChange} />
-        <CardList robots={filteredRobots} />
-      </div>
-    );
-  }
+  return (
+    <div className="tc">
+      <h1 id="robotitle" className="font-face">
+        Robo Friends
+      </h1>
+      <SearchBox searchChange={onSearchChange} />
+      <CardList robots={fetchedRobots} />
+    </div>
+  )
 }
 
-const container = document.getElementById("root");
-const root = createRoot(container);
-root.render(<App />);
+const root = createRoot(document.getElementById('root'))
+root.render(<App />)
