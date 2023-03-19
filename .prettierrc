@@ -3,8 +3,7 @@
   "semi": false,
   "singleQuote": true,
   "jsxSingleQuote": false,
-  "trailingComma": "all",
+  "trailingComma": "none",
   "bracketSpacing": true,
-  "bracketSameLine": false,
-  "spaceBeforeFunctionParen": true
+  "bracketSameLine": false
 }
