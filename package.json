@@ -22,6 +22,8 @@
     "@vitejs/plugin-react": "^3.1.0",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
     "git-commit-msg-linter": "^4.9.2",
     "vite": "^4.2.0"
   }
