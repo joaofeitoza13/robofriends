@@ -1,27 +1,32 @@
 import { useState, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
-
-import './index.css'
-import 'tachyons'
-
 import CardList from './CardList'
-import { robots } from './robots'
 import SearchBox from './SearchBox'
+import fetchRobots from './fetchRobots'
+import 'tachyons'
+import './index.css'
 
 const App = () => {
-  const [fetchedRobots, setRobots] = useState([])
+  const [robots, setRobots] = useState([])
   const [searchField, setSearchField] = useState('')
 
   useEffect(() => {
-    const filteredRobots = robots.filter((robot) =>
-      robot.name.toLowerCase().includes(searchField.toLowerCase())
-    )
-    setRobots(filteredRobots)
+    if (robots.length === 0) {
+      getRobots()
+    }
   }, [searchField])
+
+  const getRobots = async () => {
+    const robots = await fetchRobots(14)
+    setRobots(robots)
+  }
 
   const onSearchChange = (event) => {
     setSearchField(event.target.value)
   }
+  const filteredRobots = robots.filter((robot) =>
+    robot.username.includes(searchField.toLowerCase())
+  )
 
   return (
     <div className="tc">
@@ -29,7 +34,7 @@ const App = () => {
         Robo Friends
       </h1>
       <SearchBox searchChange={onSearchChange} />
-      <CardList robots={fetchedRobots} />
+      <CardList robots={filteredRobots} />
     </div>
   )
 }

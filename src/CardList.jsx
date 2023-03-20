@@ -1,19 +1,21 @@
 import Card from './Card'
 
 const CardList = ({ robots }) => {
-  return (
+  return robots.length ? (
     <div className="cardlist">
-      {robots.map((user, i) => {
+      {robots.map((_, i) => {
         return (
           <Card
-            key={robots[i].id}
-            id={robots[i].id}
+            key={robots[i].uuid}
+            id={robots[i].uuid}
             name={robots[i].name}
-            email={robots[i].email}
+            username={robots[i].username}
           />
         )
       })}
     </div>
+  ) : (
+    <h1>Empty array.</h1>
   )
 }
 
