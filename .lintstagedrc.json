@@ -1,6 +1,8 @@
 {
   "*.{js,jsx}": [
-    "npm run lint",
+    "npm run lint:staged",
+    "npm run stylelist:staged",
+    "npm run format:staged",
     "npm run test:staged"
   ]
 }
