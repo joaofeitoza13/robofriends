@@ -16,6 +16,7 @@
     "dev": "vite",
     "test": "",
     "test:staged": "",
+    "test:ci": "",
     "build": "vite build",
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
