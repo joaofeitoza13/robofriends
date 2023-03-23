@@ -4,8 +4,12 @@ import Index from './Index'
 import Details from './Details'
 import 'tachyons'
 import './index.css'
+import { useState } from 'react'
+import { RobotsContext } from './RobotContext'
 
 const App = () => {
+  const robots = useState('None selected')
+
   return (
     <div className="tc">
       <BrowserRouter>
@@ -14,10 +18,12 @@ const App = () => {
             Robo Friends
           </h1>
         </Link>
-        <Routes>
-          <Route path="/details/:id" element={<Details />} />
-          <Route path="/" element={<Index />} />
-        </Routes>
+        <RobotsContext.Provider value={robots}>
+          <Routes>
+            <Route path="/details/:id" element={<Details />} />
+            <Route path="/" element={<Index />} />
+          </Routes>
+        </RobotsContext.Provider>
       </BrowserRouter>
     </div>
   )
