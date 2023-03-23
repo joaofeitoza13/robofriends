@@ -23,7 +23,7 @@
     "lint": "eslint \"src/**/*.{js,jsx}\" --fix",
     "lint:staged": "eslint --fix",
     "stylelint": "npx stylelint \"src/**/*.css\"",
-    "stylelint:staged": "npx stylelint '*.css'",
+    "stylelint:staged": "npx stylelint \"src/**/*.css\"",
     "prepare": "husky install"
   },
   "devDependencies": {
