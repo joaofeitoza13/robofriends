@@ -25,11 +25,13 @@ const fetchRobots = async (num) => {
   const getRoboHashUrl = (id) => `https://robohash.org/${id}.png`
 
   const generateRoboHashPromises = (num, users) =>
-    Array(num).map((_, index) =>
-      fetch(getRoboHashUrl(users[index].uuid)).then(
-        (response) => (users[index].photo = response.url)
+    Array(num)
+      .fill()
+      .map((_, index) =>
+        fetch(getRoboHashUrl(users[index].uuid)).then(
+          (response) => (users[index].photo = response.url)
+        )
       )
-    )
 
   await Promise.all(generateRoboHashPromises(num, randomUsers))
 
