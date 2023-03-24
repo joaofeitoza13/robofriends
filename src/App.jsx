@@ -14,8 +14,8 @@ const App = () => {
     <div className="tc">
       <BrowserRouter>
         <Link to="/">
-          <h1 id="robotitle" className="font-face">
-            Robo Friends
+          <h1 id="robot-title" className="font-face">
+            Hire Dev Robots
           </h1>
         </Link>
         <RobotsContext.Provider value={robots}>

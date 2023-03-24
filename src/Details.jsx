@@ -1,24 +1,30 @@
 import { useContext } from 'react'
-// import { useParams } from 'react-router'
+import { useParams } from 'react-router'
 import { RobotsContext } from './RobotContext'
+// import { Modal } from "./Modal"
 
 function Details() {
-  // const { id } = useParams()
-  const [robot] = useContext(RobotsContext)
+  const { id } = useParams()
+  const [{ photo, username, name, job, location, projects }] =
+    useContext(RobotsContext)
   return (
-    <div className="tc bg-light-green dib br3 pa4 ma4 shadow-5">
+    <div className="tc bg-light-green dib br3 pa4 ma4 shadow-5" key={id}>
       <div className="user-image">
-        <img src={`${robot.photo}`} alt="" />
+        <img src={`${photo}`} alt="" />
       </div>
-      <h2 className="user-name">{robot.username}</h2>
-      <p className="about-user">{`My name is ${robot.name} and I'm a robot frontend web developer`}</p>
-      <p>{`I'm from ${robot.city}, ${robot.country}`}</p>
-      <div className="social-container">
-        <span className="">{`I have ${Math.abs(
-          Math.random() * 1000
-        ).toFixed()} projets`}</span>
-      </div>
-      <button className="hire-me">Hire Me</button>
+      <p className="robot-user">{username}</p>
+      <p className="f3">
+        <b>{name}</b>
+      </p>
+      <p className="f4">{job}</p>
+      <p className="f4">{location}</p>
+      <p className="f3">
+        <b>I have {projects} projects</b>
+      </p>
+      <br />
+      <button className="hire-me bg-dark-blue f3 near-white link dim br2 bn pa10">
+        Hire Me
+      </button>
     </div>
   )
 }

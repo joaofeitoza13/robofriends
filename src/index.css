@@ -32,22 +32,37 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-.cardlist {
-  display:flex;
+.card-list {
+  display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
-#card {
+.robot-user {
+  color: rgb(5, 5, 67);
+  font-size: 2.325rem;
+  font-family: "Silkscreen", sans-serif;
+}
+
+.hire-me {
+  padding: 1rem 3rem;
+  background: linear-gradient(to right, rgb(7 27 82 / 60%) 0%, rgb(0 128 128 / 60%)  100%);
+}
+
+#card { 
   width: 250px;
 }
 
-
-#robotitle {
-  font-family: "Press Start 2P", sans-serif;
+#robot-title {
+  font-family: "Silkscreen", sans-serif;
+  font-size: 4rem;
   color:rgb(8 8 46);
-  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke: 2rem;
+  -webkit-text-stroke-width: 0.1rem;
   -webkit-text-stroke-color: white;
+}
+
+#robot-title:link {
+  text-decoration: none;
 }
 
 #search-box {
