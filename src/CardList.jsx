@@ -4,14 +4,7 @@ const CardList = ({ robots }) => {
   return robots.length ? (
     <div className="cardlist">
       {robots.map((_, i) => {
-        return (
-          <Card
-            key={robots[i].uuid}
-            id={robots[i].uuid}
-            name={robots[i].name}
-            username={robots[i].username}
-          />
-        )
+        return <Card key={robots[i].uuid} robot={robots[i]} />
       })}
     </div>
   ) : (

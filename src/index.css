@@ -32,22 +32,37 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-.cardlist {
-  display:flex;
+.card-list {
+  display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
-#card {
+.robot-user {
+  color: rgb(5, 5, 67);
+  font-size: 2.325rem;
+  font-family: "Silkscreen", sans-serif;
+}
+
+.hire-me {
+  padding: 1rem 3rem;
+  background: linear-gradient(to right, rgb(7 27 82 / 60%) 0%, rgb(0 128 128 / 60%)  100%);
+}
+
+#card { 
   width: 250px;
 }
 
-
-#robotitle {
-  font-family: "Press Start 2P", sans-serif;
+#robot-title {
+  font-family: "Silkscreen", sans-serif;
+  font-size: 4rem;
   color:rgb(8 8 46);
-  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke: 2rem;
+  -webkit-text-stroke-width: 0.1rem;
   -webkit-text-stroke-color: white;
+}
+
+#robot-title:link {
+  text-decoration: none;
 }
 
 #search-box {
@@ -58,4 +73,57 @@ code {
   border-color:aquamarine;
   background-color: aquamarine;
   color: black;
+}
+
+#modal {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal:empty {
+  display: none;
+}
+
+#modal > div {
+  background: #9eebcf;
+  max-width: 500px;
+  padding: 15px;
+  text-align: center;
+  border-radius: 30px;
+}
+
+.modal > p {
+  line-height: 3.25rem;
+}
+
+.modal > p > span {
+  font-family: "Silkscreen", sans-serif;
+  font-size: 2.215rem;
+  color:rgb(8 8 46);
+}
+
+#modal .buttons button {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+#modal button {
+  background: linear-gradient(to right, rgb(7 27 82 / 60%) 0%, rgb(0 128 128 / 60%)  100%);
+  padding: 1rem 3rem;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: #333 1px solid;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
 }

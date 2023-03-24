@@ -24,10 +24,11 @@
     "lint": "eslint \"src/**/*.{js,jsx}\" --fix",
     "lint:staged": "eslint --fix",
     "stylelint": "npx stylelint \"src/**/*.css\"",
-    "stylelint:staged": "npx stylelint '*.css'",
+    "stylelint:staged": "npx stylelint \"**/*.css\"",
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@stylelint/postcss-css-in-js": "^0.38.0",
     "@vitejs/plugin-react": "^3.1.0",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.7.0",
