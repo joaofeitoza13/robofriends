@@ -1,12 +1,15 @@
-import { useContext } from 'react'
-import { useParams } from 'react-router'
+import { useState, useContext } from 'react'
+import { useNavigate, useParams } from 'react-router'
 import { RobotsContext } from './RobotContext'
-// import { Modal } from "./Modal"
+import { Modal } from './Modal'
 
 function Details() {
   const { id } = useParams()
-  const [{ photo, username, name, job, location, projects }] =
+  const navigate = useNavigate()
+  const [showModal, setShowModal] = useState(false)
+  const [{ photo, username, name, job, location, projects }, setRobots] =
     useContext(RobotsContext)
+
   return (
     <div className="tc bg-light-green dib br3 pa4 ma4 shadow-5" key={id}>
       <div className="user-image">
@@ -22,9 +25,41 @@ function Details() {
         <b>I have {projects} projects</b>
       </p>
       <br />
-      <button className="hire-me bg-dark-blue f3 near-white link dim br2 bn pa10">
+      <button
+        className="hire-me bg-dark-blue f3 near-white link dim br2 bn pa10"
+        onClick={() => {
+          setShowModal(true)
+        }}
+      >
         Hire Me
       </button>
+      {showModal ? (
+        <Modal>
+          <div className="modal">
+            <p className="f2">
+              Would you like to hire <span>{username}</span> ?
+            </p>
+            <div className="buttons">
+              <button
+                onClick={() => {
+                  alert(`Thanks for hiring ${username}!`)
+                  setRobots({ photo, username, name })
+                  navigate('/')
+                }}
+              >
+                Yes
+              </button>
+              <button
+                onClick={() => {
+                  setShowModal(false)
+                }}
+              >
+                No
+              </button>
+            </div>
+          </div>
+        </Modal>
+      ) : null}
     </div>
   )
 }
