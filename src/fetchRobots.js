@@ -5,8 +5,7 @@ const seniorityList = [
   'Mid-level',
   'Senior',
   'Staff',
-  'Legend',
-  'God',
+  'Master',
 ]
 
 const jobList = [
@@ -52,7 +51,7 @@ const jobList = [
   'Confluence Engineer',
   'Coverage Engineer',
   'DBA',
-  'Data Aarchitect',
+  'Data Architect',
   'Data Analyst',
   'Data Engineer',
   'Data Modeler',
@@ -147,7 +146,7 @@ const jobList = [
   'Site Reliability Engineer',
   'SonarQube Engineer',
   'Splunk Engineer',
-  'Splunk Enterprise Security Engineer',
+  'Splunk Security Engineer',
   'TFS Engineer',
   'TeamCity Engineer',
   'Tech Lead',
@@ -163,7 +162,6 @@ const jobList = [
   'Web Designer',
   'Web Developer',
   'WordPress Developer',
-  'Wordpress Developer',
   'XL Deploy Engineer',
   'Zabbix Engineer',
 ]
