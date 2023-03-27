@@ -48,6 +48,15 @@ code {
   background: linear-gradient(to right, rgb(7 27 82 / 60%) 0%, rgb(0 128 128 / 60%)  100%);
 }
 
+#hired {
+  opacity: 45%;
+  position: absolute;
+  top: 28rem;
+  left: 29rem;
+  z-index: 1;
+  overflow: hidden;
+}
+
 #card { 
   width: 250px;
 }
