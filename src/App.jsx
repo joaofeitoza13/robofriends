@@ -8,7 +8,7 @@ import { useState } from 'react'
 import { RobotsContext } from './RobotContext'
 
 const App = () => {
-  const robots = useState('None selected')
+  const robots = useState(null)
 
   return (
     <div className="tc">

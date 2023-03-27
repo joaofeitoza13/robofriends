@@ -7,7 +7,7 @@ const Card = ({ robot }) => {
   const [_, setRobot] = useContext(RobotsContext)
   return (
     <Link
-      to={`/details/${robot.uuid}`}
+      to={`/details/${robot.id}`}
       onClick={() => {
         setRobot(robot)
       }}

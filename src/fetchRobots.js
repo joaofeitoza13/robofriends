@@ -187,7 +187,7 @@ const fetchRobots = async (num) => {
       location: { city, country },
     }) => ({
       photo: '',
-      uuid,
+      id: uuid,
       username,
       name: `${first} ${last}`,
       projects: getProjects(num),
@@ -204,7 +204,7 @@ const fetchRobots = async (num) => {
     Array(num)
       .fill()
       .map((_, index) => ({
-        url: getRobotURL(robots[index].uuid),
+        url: getRobotURL(robots[index].id),
         robot: robots[index],
       }))
 
