@@ -46,7 +46,7 @@ const jobList = [
   'Cloud Engineer',
   'Cloud Network Engineer',
   'Cloud Security Engineer',
-  'Computer Graphics Aniumator',
+  'Computer Graphics Animator',
   'Computer Hardware Engineer',
   'Computer Network Architect',
   'Confluence Engineer',
@@ -196,6 +196,7 @@ const fetchRobots = async (num) => {
       job: `${getSeniority(seniorityList)} ${getJob(jobList)}`,
       email,
       location: `${city}, ${country}`,
+      hired: false,
     })
   )
 
