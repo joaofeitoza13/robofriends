@@ -1,35 +1,42 @@
-import { useState, useEffect } from "react"
-import SearchBox from "./SearchBox"
-import CardList from "./CardList"
+import { useState, useEffect } from 'react'
+import SearchBox from './SearchBox'
+import CardList from './CardList'
 import fetchRobots from './fetchRobots'
+import { useLocalStorage } from './useLocalStorage'
 
 const Index = () => {
-  const [robots, setRobots] = useState([])
+  let filteredRobots = []
+  // const [robots, setRobots] = useState([])
   const [searchField, setSearchField] = useState('')
+  const [storedRobots, setStoredRobots] = useLocalStorage('robots', '')
 
   useEffect(() => {
-    if (robots.length === 0) {
+    if (storedRobots.length === 0) {
       getRobots()
     }
   }, [searchField])
 
   const getRobots = async () => {
-    const robots = await fetchRobots(14)
-    setRobots(robots)
+    const robots = await fetchRobots(15)
+    setStoredRobots(robots)
   }
 
   const onSearchChange = (event) => {
     setSearchField(event.target.value)
   }
-  const filteredRobots = robots.filter((robot) =>
-    robot.username.includes(searchField.toLowerCase())
-  )
-  return(
+
+  if (storedRobots) {
+    filteredRobots = storedRobots.filter((robot) =>
+      robot.username.includes(searchField.toLowerCase())
+    )
+  }
+
+  return (
     <>
       <SearchBox searchChange={onSearchChange} />
       <CardList robots={filteredRobots} />
     </>
-  ) 
+  )
 }
 
 export default Index

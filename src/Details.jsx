@@ -2,13 +2,17 @@ import { useState, useContext } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import { RobotsContext } from './RobotContext'
 import { Modal } from './Modal'
+import { useLocalStorage } from './useLocalStorage'
 
 function Details() {
   const { id } = useParams()
   const navigate = useNavigate()
   const [showModal, setShowModal] = useState(false)
-  const [{ photo, username, name, job, location, projects }, setRobots] =
-    useContext(RobotsContext)
+  const [robot, setRobots] = useContext(RobotsContext)
+
+  const [selectedRobot] = useLocalStorage(`${id}`, robot)
+
+  const { photo, username, name, job, location, projects } = selectedRobot
 
   return (
     <div className="tc bg-light-green dib br3 pa4 ma4 shadow-5" key={id}>
@@ -42,7 +46,6 @@ function Details() {
             <div className="buttons">
               <button
                 onClick={() => {
-                  alert(`Thanks for hiring ${username}!`)
                   setRobots({ photo, username, name })
                   navigate('/')
                 }}
