@@ -6,7 +6,6 @@ import { useLocalStorage } from './useLocalStorage'
 
 const Index = () => {
   let filteredRobots = []
-  // const [robots, setRobots] = useState([])
   const [searchField, setSearchField] = useState('')
   const [storedRobots, setStoredRobots] = useLocalStorage('robots', '')
 

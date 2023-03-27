@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import Index from './Index'
+import Robots from './Robots'
 import Details from './Details'
 import 'tachyons'
 import './index.css'
@@ -21,7 +21,7 @@ const App = () => {
         <RobotsContext.Provider value={robots}>
           <Routes>
             <Route path="/details/:id" element={<Details />} />
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={<Robots />} />
           </Routes>
         </RobotsContext.Provider>
       </BrowserRouter>
