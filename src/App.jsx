@@ -5,10 +5,10 @@ import Details from './Details'
 import 'tachyons'
 import './index.css'
 import { useState } from 'react'
-import { RobotsContext } from './RobotContext'
+import { RobotsContext } from './RobotsContext'
 
 const App = () => {
-  const robots = useState(null)
+  const robot = useState(null)
 
   return (
     <div className="tc">
@@ -18,7 +18,7 @@ const App = () => {
             Hire Dev Robots
           </h1>
         </Link>
-        <RobotsContext.Provider value={robots}>
+        <RobotsContext.Provider value={robot}>
           <Routes>
             <Route path="/details/:id" element={<Details />} />
             <Route path="/" element={<Robots />} />

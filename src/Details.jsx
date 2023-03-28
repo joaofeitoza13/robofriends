@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router'
 import { useLocalStorage } from './useLocalStorage'
-import { RobotsContext } from './RobotContext'
+import { RobotsContext } from './RobotsContext'
 import { Modal } from './Modal'
 import hiredImg from '../public/hired.png'
 
