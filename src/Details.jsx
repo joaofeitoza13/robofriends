@@ -9,11 +9,22 @@ function Details() {
   const { id } = useParams()
   const [robot] = useContext(RobotsContext)
   const [showModal, setShowModal] = useState(false)
-  const [details, setDetails] = useLocalStorage(`${id}`, robot)
+  const [details, setDetails] = useLocalStorage(`${id}`, robot.robot)
 
   useEffect(() => {
     toggleHiredCSSClass(details)
   }, [details.hired])
+
+  const updateRobotHiredStatusInStorage = (id) => {
+    const storageKey = `robots-page-${robot.currentPage}`
+    const storedItem = localStorage.getItem(storageKey)
+    const fetchedList = JSON.parse(storedItem)
+    const robotList = fetchedList.robots
+    const robotIndex = robotList.findIndex((robot) => robot.id === id)
+    fetchedList.robots[robotIndex].hired = details.hired
+    const newItem = structuredClone(fetchedList)
+    localStorage.setItem(storageKey, JSON.stringify(newItem))
+  }
 
   const toggleHiredCSSClass = () => {
     const detailsClass = document.getElementById('hired')
@@ -27,6 +38,7 @@ function Details() {
   const hireRobot = (flag) => {
     details.hired = flag
     setDetails(structuredClone(details))
+    updateRobotHiredStatusInStorage(id)
   }
 
   return (
