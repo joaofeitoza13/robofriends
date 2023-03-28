@@ -1,3 +1,5 @@
+const randomAPISeed = 'roboHash'
+
 const seniorityList = [
   '',
   'Trainee',
@@ -174,9 +176,19 @@ const getSeniority = (seniorityList) => randomItem(seniorityList)
 
 const getJob = (jobList) => randomItem(jobList)
 
-const fetchRobots = async (num) => {
+const getRobotURL = (id) => `https://robohash.org/${id}.png`
+
+const genRobotPromises = (num, robots) =>
+  Array(num)
+    .fill()
+    .map((_, index) => ({
+      url: getRobotURL(robots[index].id),
+      robot: robots[index],
+    }))
+
+const fetchRobots = async (num, page) => {
   const randomUserData = await fetch(
-    `https://randomuser.me/api/?results=${num}`
+    `https://randomuser.me/api/?seed=${randomAPISeed}&page=${page}&results=${num}`
   )
   const randomUserJSONData = await randomUserData.json()
   const randomUsers = randomUserJSONData.results.map(
@@ -197,16 +209,6 @@ const fetchRobots = async (num) => {
       hired: false,
     })
   )
-
-  const getRobotURL = (id) => `https://robohash.org/${id}.png`
-
-  const genRobotPromises = (num, robots) =>
-    Array(num)
-      .fill()
-      .map((_, index) => ({
-        url: getRobotURL(robots[index].id),
-        robot: robots[index],
-      }))
 
   await Promise.all(
     genRobotPromises(num, randomUsers).map((result) =>
