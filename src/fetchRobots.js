@@ -1,3 +1,5 @@
+const randomAPISeed = 'roboHash'
+
 const seniorityList = [
   '',
   'Trainee',
@@ -5,8 +7,7 @@ const seniorityList = [
   'Mid-level',
   'Senior',
   'Staff',
-  'Legend',
-  'God',
+  'Master',
 ]
 
 const jobList = [
@@ -46,13 +47,13 @@ const jobList = [
   'Cloud Engineer',
   'Cloud Network Engineer',
   'Cloud Security Engineer',
-  'Computer Graphics Aniumator',
+  'Computer Graphics Animator',
   'Computer Hardware Engineer',
   'Computer Network Architect',
   'Confluence Engineer',
   'Coverage Engineer',
   'DBA',
-  'Data Aarchitect',
+  'Data Architect',
   'Data Analyst',
   'Data Engineer',
   'Data Modeler',
@@ -147,7 +148,7 @@ const jobList = [
   'Site Reliability Engineer',
   'SonarQube Engineer',
   'Splunk Engineer',
-  'Splunk Enterprise Security Engineer',
+  'Splunk Security Engineer',
   'TFS Engineer',
   'TeamCity Engineer',
   'Tech Lead',
@@ -163,7 +164,6 @@ const jobList = [
   'Web Designer',
   'Web Developer',
   'WordPress Developer',
-  'Wordpress Developer',
   'XL Deploy Engineer',
   'Zabbix Engineer',
 ]
@@ -176,9 +176,19 @@ const getSeniority = (seniorityList) => randomItem(seniorityList)
 
 const getJob = (jobList) => randomItem(jobList)
 
-const fetchRobots = async (num) => {
+const getRobotURL = (id) => `https://robohash.org/${id}.png`
+
+const genRobotPromises = (num, robots) =>
+  Array(num)
+    .fill()
+    .map((_, index) => ({
+      url: getRobotURL(robots[index].id),
+      robot: robots[index],
+    }))
+
+const fetchRobots = async (num, page) => {
   const randomUserData = await fetch(
-    `https://randomuser.me/api/?results=${num}`
+    `https://randomuser.me/api/?seed=${randomAPISeed}&page=${page}&results=${num}`
   )
   const randomUserJSONData = await randomUserData.json()
   const randomUsers = randomUserJSONData.results.map(
@@ -189,25 +199,16 @@ const fetchRobots = async (num) => {
       location: { city, country },
     }) => ({
       photo: '',
-      uuid,
+      id: uuid,
       username,
       name: `${first} ${last}`,
       projects: getProjects(num),
       job: `${getSeniority(seniorityList)} ${getJob(jobList)}`,
       email,
       location: `${city}, ${country}`,
+      hired: false,
     })
   )
-
-  const getRobotURL = (id) => `https://robohash.org/${id}.png`
-
-  const genRobotPromises = (num, robots) =>
-    Array(num)
-      .fill()
-      .map((_, index) => ({
-        url: getRobotURL(robots[index].uuid),
-        robot: robots[index],
-      }))
 
   await Promise.all(
     genRobotPromises(num, randomUsers).map((result) =>

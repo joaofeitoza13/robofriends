@@ -1,14 +1,14 @@
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import Index from './Index'
+import Robots from './Robots'
 import Details from './Details'
 import 'tachyons'
 import './index.css'
 import { useState } from 'react'
-import { RobotsContext } from './RobotContext'
+import { RobotsContext } from './RobotsContext'
 
 const App = () => {
-  const robots = useState('None selected')
+  const robot = useState(null)
 
   return (
     <div className="tc">
@@ -18,10 +18,10 @@ const App = () => {
             Hire Dev Robots
           </h1>
         </Link>
-        <RobotsContext.Provider value={robots}>
+        <RobotsContext.Provider value={robot}>
           <Routes>
             <Route path="/details/:id" element={<Details />} />
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={<Robots />} />
           </Routes>
         </RobotsContext.Provider>
       </BrowserRouter>

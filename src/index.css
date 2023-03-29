@@ -48,8 +48,18 @@ code {
   background: linear-gradient(to right, rgb(7 27 82 / 60%) 0%, rgb(0 128 128 / 60%)  100%);
 }
 
+#hired {
+  opacity: 45%;
+  position: absolute;
+  top: 28rem;
+  left: 29rem;
+  z-index: 1;
+  overflow: hidden;
+}
+
 #card { 
   width: 250px;
+  color: rgb(7 27 82 / 100%);
 }
 
 #robot-title {
@@ -66,13 +76,15 @@ code {
 }
 
 #search-box {
-  border-radius: 10px;
-  text-decoration: none;
-  width: 10rem;
-  height: 2rem;
-  border-color:aquamarine;
-  background-color: aquamarine;
+  background-color: #9eebcf;
   color: black;
+  padding: 1rem;
+  margin-bottom: 3rem;
+  border: none;
+  border-radius: 1rem;
+  text-decoration: none;
+  width: 20rem;
+  height: 2rem;
 }
 
 #modal {
@@ -126,4 +138,43 @@ code {
   display: block;
   margin: 0 auto;
   cursor: pointer;
+}
+
+#pagination {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+  margin-top: 5rem;
+}
+
+#pagination input {
+  background-color: #9eebcf;
+  border: none;
+  border-radius: .25rem;
+  padding: 8px 1px;
+}
+
+#pagination button {
+  background-color: #9eebcf;
+  border-radius: .25rem;
+  float: left;
+  padding: 8px 16px;
+  border: none;
+}
+
+#pagination button.active {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
+
+#pagination button:hover:not(.active) {
+  background-color: #4CAF50;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#pagination .disabled {
+  pointer-events: none;
+  opacity: 0.40;
 }
