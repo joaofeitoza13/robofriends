@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useRobot } from './RobotsContext'
 
-const Card = ({ robot, currentPage }) => {
+export const Card = ({ robot, currentPage }) => {
   // eslint-disable-next-line no-unused-vars
   const [_, setRobot] = useRobot()
   return (
@@ -21,5 +21,3 @@ const Card = ({ robot, currentPage }) => {
     </Link>
   )
 }
-
-export default Card

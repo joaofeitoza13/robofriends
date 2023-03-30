@@ -5,7 +5,7 @@ import { useRobot } from './RobotsContext'
 import { Modal } from './Modal'
 import hiredImg from '../public/hired.png'
 
-function Details() {
+export const Details = () => {
   const { id } = useParams()
   const [robot] = useRobot()
   const [showModal, setShowModal] = useState(false)
@@ -120,7 +120,3 @@ function Details() {
     </div>
   )
 }
-
-Details.propTypes = {}
-
-export default Details
