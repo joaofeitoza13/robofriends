@@ -2,10 +2,10 @@ const SearchBox = ({ searchChange }) => {
   return (
     <div>
       <input
-        id="searchBox"
+        id="search-box"
         className="tc"
         type="search"
-        placeholder="search robots"
+        placeholder="enter robot name"
         onChange={searchChange}
       />
     </div>

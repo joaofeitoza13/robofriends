@@ -1,6 +1,6 @@
 {
   "name": "robofriends",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -16,13 +16,19 @@
     "dev": "vite",
     "test": "",
     "test:staged": "",
+    "test:ci": "",
     "build": "vite build",
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "format:staged": "prettier --write",
     "lint": "eslint \"src/**/*.{js,jsx}\" --fix",
+    "lint:staged": "eslint --fix",
+    "stylelint": "npx stylelint \"src/**/*.css\"",
+    "stylelint:staged": "npx stylelint \"**/*.css\"",
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@stylelint/postcss-css-in-js": "^0.38.0",
     "@vitejs/plugin-react": "^3.1.0",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.7.0",
@@ -34,6 +40,9 @@
     "git-commit-msg-linter": "^4.9.2",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
+    "stylelint": "^15.3.0",
+    "stylelint-config-standard": "^31.0.0",
+    "stylelint-config-standard-scss": "^7.0.1",
     "vite": "^4.2.0"
   }
 }

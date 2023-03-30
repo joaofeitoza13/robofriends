@@ -1,37 +1,39 @@
-const fetchRobots = async (num) => {
+import {
+  getProjects,
+  getSeniority,
+  getJob,
+  seniorityList,
+  jobList,
+  addRobotImgURLToUsers,
+} from './helpers/index'
+
+const randomAPISeed = 'roboHash'
+
+const fetchRobots = async (num, page) => {
   const randomUserData = await fetch(
-    `https://randomuser.me/api/?results=${num}`
+    `https://randomuser.me/api/?seed=${randomAPISeed}&page=${page}&results=${num}`
   )
   const randomUserJSONData = await randomUserData.json()
   const randomUsers = randomUserJSONData.results.map(
     ({
       name: { first, last },
-      gender,
       email,
       login: { uuid, username },
       location: { city, country },
     }) => ({
       photo: '',
-      uuid,
+      id: uuid,
       username,
       name: `${first} ${last}`,
-      gender,
+      projects: getProjects(num),
+      job: `${getSeniority(seniorityList)} ${getJob(jobList)}`,
       email,
-      city,
-      country,
+      location: `${city}, ${country}`,
+      hired: false,
     })
   )
 
-  const getRoboHashUrl = (id) => `https://robohash.org/${id}.png`
-
-  const generateRoboHashPromises = (num, users) =>
-    Array(num).map((_, index) =>
-      fetch(getRoboHashUrl(users[index].uuid)).then(
-        (response) => (users[index].photo = response.url)
-      )
-    )
-
-  await Promise.all(generateRoboHashPromises(num, randomUsers))
+  await addRobotImgURLToUsers(num, randomUsers)
 
   return randomUsers
 }

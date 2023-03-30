@@ -1,25 +1,33 @@
+import React, { useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import Index from './Index'
+import { RobotsContext } from './RobotsContext'
 import Details from './Details'
+import Robots from './Robots'
 import 'tachyons'
 import './index.css'
 
 const App = () => {
+  const robot = useState(null)
+
   return (
-    <div className="tc">
-      <BrowserRouter>
-        <Link to="/">
-          <h1 id="robotitle" className="font-face">
-            Robo Friends
-          </h1>
-        </Link>
-        <Routes>
-          <Route path="/details/:id" element={<Details />} />
-          <Route path="/" element={<Index />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <React.StrictMode>
+      <div className="tc">
+        <BrowserRouter>
+          <Link to="/">
+            <h1 id="robot-title" className="font-face">
+              Hire Dev Robots
+            </h1>
+          </Link>
+          <RobotsContext.Provider value={robot}>
+            <Routes>
+              <Route path="/details/:id" element={<Details />} />
+              <Route path="/" element={<Robots />} />
+            </Routes>
+          </RobotsContext.Provider>
+        </BrowserRouter>
+      </div>
+    </React.StrictMode>
   )
 }
 
