@@ -1,6 +1,6 @@
-import Card from './Card'
+import { Card } from './Card'
 
-const CardList = ({ robots, currentPage }) => {
+export const CardList = ({ robots, currentPage }) => {
   return robots.length ? (
     <div id="card-list">
       {robots.map((_, i) => {
@@ -19,5 +19,3 @@ const CardList = ({ robots, currentPage }) => {
     </h1>
   )
 }
-
-export default CardList

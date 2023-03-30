@@ -1,4 +1,4 @@
-function Pagination({ currentPage, setCurrentPage }) {
+export function Pagination({ currentPage, setCurrentPage }) {
   const prevPage = () =>
     currentPage >= 1 ? setCurrentPage(currentPage - 1) : null
 
@@ -31,5 +31,3 @@ function Pagination({ currentPage, setCurrentPage }) {
     </div>
   )
 }
-
-export default Pagination
