@@ -1,4 +1,6 @@
 body {
+  display: flex;
+  justify-content: center;
   overflow-x: hidden;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -32,9 +34,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-.card-list {
+#card-list {
+  padding: 0 1.25rem;
   display: flex;
+  justify-content: center;
+  align-content: center;
   flex-wrap: wrap;
+  gap: 0.25rem;
+  flex-basis: 33%;
+  max-width: 1920px;
+}
+
+@media screen and (max-width: 1656px) {
+  #card-list {
+    max-width: 1385px;
+  }
 }
 
 .robot-user {
@@ -78,13 +92,19 @@ code {
 #search-box {
   background-color: #9eebcf;
   color: black;
-  padding: 1rem;
+  padding: 1.25rem 1rem;
   margin-bottom: 3rem;
   border: none;
-  border-radius: 1rem;
+  border-radius: .25rem;
   text-decoration: none;
-  width: 20rem;
+  width: 25rem;
   height: 2rem;
+}
+
+#search-box:focus {
+  outline-style: solid;
+  outline-width: .215rem;
+  outline-color: #4CAF50;
 }
 
 #modal {
@@ -152,6 +172,7 @@ code {
   border: none;
   border-radius: .25rem;
   padding: 8px 1px;
+  max-width: 80px;
 }
 
 #pagination button {

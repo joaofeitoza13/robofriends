@@ -2,7 +2,7 @@ import Card from './Card'
 
 const CardList = ({ robots, currentPage }) => {
   return robots.length ? (
-    <div className="cardlist">
+    <div id="card-list">
       {robots.map((_, i) => {
         return (
           <Card
