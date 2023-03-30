@@ -1,15 +1,13 @@
-import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { RobotsContext } from './RobotsContext'
+import { useRobot } from './RobotsContext'
 
 const Card = ({ robot, currentPage }) => {
   // eslint-disable-next-line no-unused-vars
-  const [_, setRobot] = useContext(RobotsContext)
+  const [_, setRobot] = useRobot()
   return (
     <Link
       to={`/details/${robot.id}`}
       onClick={() => {
-        // robot.page = currentPage
         setRobot({ robot, currentPage })
       }}
     >

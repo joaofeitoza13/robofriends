@@ -1,13 +1,13 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import { useLocalStorage } from './useLocalStorage'
-import { RobotsContext } from './RobotsContext'
+import { useRobot } from './RobotsContext'
 import { Modal } from './Modal'
 import hiredImg from '../public/hired.png'
 
 function Details() {
   const { id } = useParams()
-  const [robot] = useContext(RobotsContext)
+  const [robot] = useRobot()
   const [showModal, setShowModal] = useState(false)
   const [details, setDetails] = useLocalStorage(`${id}`, robot.robot)
 
@@ -15,19 +15,19 @@ function Details() {
     toggleHiredCSSClass(details)
   }, [details.hired])
 
-  const updateRobotHiredStatusInStorage = (id) => {
-    const storageKey = `robots-page-${robot.currentPage}`
-    const storedItem = localStorage.getItem(storageKey)
-    const fetchedList = JSON.parse(storedItem)
-    const robotList = fetchedList.robots
-    const robotIndex = robotList.findIndex((robot) => robot.id === id)
-    fetchedList.robots[robotIndex].hired = details.hired
-    const newItem = structuredClone(fetchedList)
-    localStorage.setItem(storageKey, JSON.stringify(newItem))
-  }
+  // const updateRobotHiredStatusInStorage = (id) => {
+  //   const storageKey = `robots-page-${robot.currentPage}`
+  //   const storedItem = localStorage.getItem(storageKey)
+  //   const fetchedList = JSON.parse(storedItem)
+  //   const robotList = fetchedList.robots
+  //   const robotIndex = robotList.findIndex((robot) => robot.id === id)
+  //   fetchedList.robots[robotIndex].hired = details.hired
+  //   const newItem = structuredClone(fetchedList)
+  //   localStorage.setItem(storageKey, JSON.stringify(newItem))
+  // }
 
   const toggleHiredCSSClass = () => {
-    const detailsClass = document.getElementById('hired')
+    const detailsClass = document.getElementById('hired-image')
     if (!details.hired) {
       detailsClass.classList.add('dn-l')
     } else {
@@ -38,30 +38,32 @@ function Details() {
   const hireRobot = (flag) => {
     details.hired = flag
     setDetails(structuredClone(details))
-    updateRobotHiredStatusInStorage(id)
+    // updateRobotHiredStatusInStorage(id)
   }
 
   return (
     <div
       className="tc bg-light-green dib br3 pa4 ma4 shadow-5"
+      id="details"
       key={details.id}
     >
-      <div className="user-image">
-        <img src={`${details.photo}`} alt="robot portrait" />
-        <img id="hired" src={hiredImg} alt="hired logo" width="550px" />
+      <div id="robot-photo">
+        <img src={`${details.photo}`} alt="robot portrait" width="400px" />
       </div>
-      <p className="robot-user">{details.username}</p>
-      <p className="f3">
+      <img id="hired-image" src={hiredImg} alt="hired logo" />
+      <p id="robot-username">{details.username}</p>
+      <p id="robot-name">
         <b>{details.name}</b>
       </p>
-      <p className="f4">{details.job}</p>
-      <p className="f4">{details.location}</p>
-      <p className="f3">
-        <b>I have {details.projects} projects</b>
-      </p>
+      <section id="robot-description">
+        <p>{details.job}</p>
+        <p>{details.location}</p>
+      </section>
+      <p id="robot-projects">I have {details.projects} projects</p>
       <br />
       <button
-        className="hire-me bg-dark-blue f3 near-white link dim br2 bn pa10"
+        id="hire-btn"
+        className="bg-dark-blue f3 near-white link dim br2 bn pa10"
         onClick={() => {
           setShowModal(true)
         }}
