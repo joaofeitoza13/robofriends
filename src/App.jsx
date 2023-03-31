@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import { RobotsContext } from './RobotsContext'
-import Details from './Details'
-import Robots from './Robots'
+import { RobotsProvider } from './RobotsContext'
+import { Details } from './Details'
+import { Robots } from './Robots'
 import 'tachyons'
 import './index.css'
 
@@ -12,19 +12,19 @@ const App = () => {
 
   return (
     <React.StrictMode>
-      <div className="tc">
+      <div id="app" className="tc">
         <BrowserRouter>
-          <Link to="/">
+          <Link id="app-link" to="/">
             <h1 id="robot-title" className="font-face">
               Hire Dev Robots
             </h1>
           </Link>
-          <RobotsContext.Provider value={robot}>
+          <RobotsProvider robot={robot}>
             <Routes>
               <Route path="/details/:id" element={<Details />} />
               <Route path="/" element={<Robots />} />
             </Routes>
-          </RobotsContext.Provider>
+          </RobotsProvider>
         </BrowserRouter>
       </div>
     </React.StrictMode>

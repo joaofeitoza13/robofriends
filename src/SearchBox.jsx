@@ -1,8 +1,8 @@
-const SearchBox = ({ searchChange }) => {
+export const SearchBox = ({ searchChange }) => {
   return (
-    <div>
+    <div id="search-box">
       <input
-        id="search-box"
+        id="input"
         className="tc"
         type="search"
         placeholder="enter robot name"
@@ -11,5 +11,3 @@ const SearchBox = ({ searchChange }) => {
     </div>
   )
 }
-
-export default SearchBox
