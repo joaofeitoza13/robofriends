@@ -5,7 +5,7 @@ import { useRobot } from './RobotsContext'
 import { Modal } from './Modal'
 import hiredImg from '../public/hired.png'
 
-export const Details = () => {
+export function Details() {
   const { id } = useParams()
   const [robot] = useRobot()
   const [showModal, setShowModal] = useState(false)
@@ -42,24 +42,21 @@ export const Details = () => {
   }
 
   return (
-    <div
-      className="tc bg-light-green dib br3 pa4 ma4 shadow-5"
-      id="details"
-      key={details.id}
-    >
-      <div id="robot-photo">
-        <img src={`${details.photo}`} alt="robot portrait" width="400px" />
-      </div>
-      <img id="hired-image" src={hiredImg} alt="hired logo" />
-      <p id="robot-username">{details.username}</p>
-      <p id="robot-name">
-        <b>{details.name}</b>
-      </p>
-      <section id="robot-description">
-        <p>{details.job}</p>
-        <p>{details.location}</p>
+    <div className="tc dib br3 pa4 ma4 shadow-5" id="details" key={details.id}>
+      <img
+        id="photo"
+        src={`${details.photo}`}
+        alt="robot portrait"
+        width="400px"
+      />
+      <section id="description">
+        <img id="hired-image" src={hiredImg} alt="hired logo" />
+        <p id="username">{details.username}</p>
+        <p id="name">{details.name}</p>
+        <p id="job">{details.job}</p>
+        <p id="location">{details.location}</p>
+        <p id="projects">I have {details.projects} projects</p>
       </section>
-      <p id="robot-projects">I have {details.projects} projects</p>
       <br />
       <button
         id="hire-btn"

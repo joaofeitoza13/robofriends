@@ -6,18 +6,19 @@ export const Card = ({ robot, currentPage }) => {
   const [_, setRobot] = useRobot()
   return (
     <Link
+      id="card-link"
       to={`/details/${robot.id}`}
       onClick={() => {
         setRobot({ robot, currentPage })
       }}
     >
-      <div id="card" className="tc bg-light-green dib br3 pa3 ma2 bw2 shadow-5">
-        <img alt="robots" src={`${robot.photo}`} />
-        <div>
-          <h2>{robot.username}</h2>
-          <p>{robot.name}</p>
-        </div>
-      </div>
+      <section id="card" className="tc dib br3 pa3 ma2 bw2 shadow-5">
+        <img id="photo" alt="robots" src={`${robot.photo}`} />
+        <section id="description">
+          <p id="name">{robot.name}</p>
+          <p id="username">{robot.username}</p>
+        </section>
+      </section>
     </Link>
   )
 }
