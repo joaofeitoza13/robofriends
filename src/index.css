@@ -128,7 +128,7 @@ body {
 }
 
 #card #username {
-  margin: .465rem 0;
+  margin: .825rem 0 .465rem 0;
   align-items: center;
   font-size: 1.165rem;
 }
@@ -139,12 +139,11 @@ body {
   font-family: 'JetBrains Mono', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: rgb(7 27 82 / 100%);
   background-color: #afdecd;
-  width: 450px;
+  width: 650px;
 }
 
 #details #description {
   margin: 0;
-  padding-top: 1.215rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -157,9 +156,9 @@ body {
 
 #details #description #username {
   margin: 0;
-  padding: 1.825rem 0;
+  padding: 1rem 0;
   color: rgb(5, 5, 67);
-  font-size: 2.425rem;
+  font-size: 2.625rem;
   font-family: "Silkscreen", sans-serif;
 }
 

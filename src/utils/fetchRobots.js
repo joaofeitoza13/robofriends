@@ -1,17 +1,15 @@
+import { seniorityList, jobList } from '../data/index'
 import {
+  APISeed,
   getProjects,
   getSeniority,
   getJob,
-  seniorityList,
-  jobList,
-  addRobotImgURLToUsers,
-} from './helpers/index'
+  addRobotImgURL,
+} from './index'
 
-const randomAPISeed = 'roboHash'
-
-const fetchRobots = async (num, page) => {
+export const fetchRobots = async (num, page) => {
   const randomUserData = await fetch(
-    `https://randomuser.me/api/?seed=${randomAPISeed}&page=${page}&results=${num}`
+    `https://randomuser.me/api/?seed=${APISeed}&page=${page}&results=${num}`
   )
   const randomUserJSONData = await randomUserData.json()
   const randomUsers = randomUserJSONData.results.map(
@@ -33,9 +31,7 @@ const fetchRobots = async (num, page) => {
     })
   )
 
-  await addRobotImgURLToUsers(num, randomUsers)
+  await addRobotImgURL(num, randomUsers)
 
   return randomUsers
 }
-
-export default fetchRobots

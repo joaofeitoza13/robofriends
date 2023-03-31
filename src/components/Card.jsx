@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useRobot } from './RobotsContext'
+import { useRobot } from '../context/RobotsContext'
 
 export const Card = ({ robot, currentPage }) => {
   // eslint-disable-next-line no-unused-vars
