@@ -47,7 +47,7 @@ export function Details() {
         id="photo"
         src={`${details.photo}`}
         alt="robot portrait"
-        width="400px"
+        width="550px"
       />
       <section id="description">
         <img id="hired-image" src={hiredImg} alt="hired logo" />
