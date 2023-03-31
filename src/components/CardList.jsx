@@ -14,6 +14,7 @@ export const CardList = ({ robots, currentPage }) => {
       })}
     </div>
   ) : (
+    //TODO create error handling component
     <h1 className="tc f1 light-green">
       Sorry, robot not found <br /> :/
     </h1>

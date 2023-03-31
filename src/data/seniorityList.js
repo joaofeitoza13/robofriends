@@ -1,5 +1,4 @@
 export const seniorityList = [
-  '',
   'Trainee',
   'Junior',
   'Mid-level',

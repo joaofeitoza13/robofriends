@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
-import { CardList } from './CardList'
-import { SearchBox } from './SearchBox'
-import { Pagination } from './Pagination'
-import { useFetch } from './useFetch'
-import { useFilter } from './useFilter'
+import { CardList } from '../components/CardList'
+import { SearchBox } from '../components/SearchBox'
+import { Pagination } from '../components/Pagination'
+import { useFetch, useFilter } from '../hooks/index'
 
 export const Robots = () => {
   const numberOfRobots = 12

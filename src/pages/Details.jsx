@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
-import { useLocalStorage } from './useLocalStorage'
-import { useRobot } from './RobotsContext'
-import { Modal } from './Modal'
-import hiredImg from '../public/hired.png'
+import { useLocalStorage } from '../hooks/useLocalStorage'
+import { useRobot } from '../context/index'
+import { Modal } from '../components/Modal'
+import hiredImg from '../assets/hired.png'
 
 export function Details() {
   const { id } = useParams()
