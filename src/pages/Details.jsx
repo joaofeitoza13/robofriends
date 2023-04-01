@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import { useRobot } from '../context/index'
-import { Modal } from '../components/Modal'
-import hiredImg from '../assets/hired.png'
+import { Modal, Hire } from '../components/index'
+import { DetailsCard } from './DetailsCard'
 
 export function Details() {
   const { id } = useParams()
@@ -43,75 +43,14 @@ export function Details() {
 
   return (
     <div className="tc dib br3 pa4 ma4 shadow-5" id="details" key={details.id}>
-      <img
-        id="photo"
-        src={`${details.photo}`}
-        alt="robot portrait"
-        width="550px"
-      />
-      <section id="description">
-        <img id="hired-image" src={hiredImg} alt="hired logo" />
-        <p id="username">{details.username}</p>
-        <p id="name">{details.name}</p>
-        <p id="job">{details.job}</p>
-        <p id="location">{details.location}</p>
-        <p id="projects">I have {details.projects} projects</p>
-      </section>
-      <br />
-      <button
-        id="hire-btn"
-        className="bg-dark-blue f3 near-white link dim br2 bn pa10"
-        onClick={() => {
-          setShowModal(true)
-        }}
-      >
-        {!details.hired ? 'Hire Me' : 'Unhire Me'}
-      </button>
+      <DetailsCard robot={details} setShowModal={setShowModal} />
       {showModal ? (
         <Modal>
-          <div className="modal">
-            <p className="f2">
-              Would you like to {!details.hired ? 'HIRE' : 'UNHIRE'}{' '}
-              <span>{details.username}</span> ?
-            </p>
-            {!details.hired ? (
-              <div className="buttons">
-                <button
-                  onClick={() => {
-                    hireRobot(true)
-                    setShowModal(false)
-                  }}
-                >
-                  Yes
-                </button>
-                <button
-                  onClick={() => {
-                    setShowModal(false)
-                  }}
-                >
-                  No
-                </button>
-              </div>
-            ) : (
-              <div className="buttons">
-                <button
-                  onClick={() => {
-                    hireRobot(false)
-                    setShowModal(false)
-                  }}
-                >
-                  Yes
-                </button>
-                <button
-                  onClick={() => {
-                    setShowModal(false)
-                  }}
-                >
-                  No
-                </button>
-              </div>
-            )}
-          </div>
+          <Hire
+            robot={details}
+            hireRobot={hireRobot}
+            setShowModal={setShowModal}
+          />
         </Modal>
       ) : null}
     </div>
