@@ -1,2 +1,2 @@
-export { fetchRobots } from './fetchRobots'
-export * from './functions'
+export { fetchRobots } from './fetch/fetchRobots'
+export * from './fetch/functions'

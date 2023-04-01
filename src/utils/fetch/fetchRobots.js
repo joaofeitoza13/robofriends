@@ -1,11 +1,11 @@
-import { seniorityList, jobList } from '../data/index'
+import { seniorityList, jobList } from '../../data/index'
 import {
   APISeed,
   getProjects,
   getSeniority,
   getJob,
   addRobotImgURL,
-} from './index'
+} from '../index'
 
 export const fetchRobots = async (num, page) => {
   const randomUserData = await fetch(

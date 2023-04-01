@@ -3,8 +3,8 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { RobotsProvider } from './context/index'
 import { Robots, Details } from './pages/index'
+import './assets/index.css'
 import 'tachyons'
-import './index.css'
 
 const App = () => {
   const robot = useState(null)
