@@ -14,11 +14,7 @@ export const Hire = ({ robot, hireRobot, setShowModal }) => {
           show={true}
         />
       ) : (
-        <HireButtons
-          hireRobot={hireRobot}
-          setShowModal={setShowModal}
-          show={false}
-        />
+        <HireButtons hireRobot={hireRobot} show={false} />
       )}
     </div>
   )
