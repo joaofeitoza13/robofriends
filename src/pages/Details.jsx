@@ -3,7 +3,7 @@ import { useParams } from 'react-router'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import { useRobot } from '../context/index'
 import { Modal, Hire } from '../components/index'
-import { DetailsCard } from './DetailsCard'
+import { DetailsCard } from '../components/DetailsCard'
 
 export function Details() {
   const { id } = useParams()
@@ -14,17 +14,6 @@ export function Details() {
   useEffect(() => {
     toggleHiredCSSClass(details)
   }, [details.hired])
-
-  // const updateRobotHiredStatusInStorage = (id) => {
-  //   const storageKey = `robots-page-${robot.currentPage}`
-  //   const storedItem = localStorage.getItem(storageKey)
-  //   const fetchedList = JSON.parse(storedItem)
-  //   const robotList = fetchedList.robots
-  //   const robotIndex = robotList.findIndex((robot) => robot.id === id)
-  //   fetchedList.robots[robotIndex].hired = details.hired
-  //   const newItem = structuredClone(fetchedList)
-  //   localStorage.setItem(storageKey, JSON.stringify(newItem))
-  // }
 
   const toggleHiredCSSClass = () => {
     const detailsClass = document.getElementById('hired-image')
