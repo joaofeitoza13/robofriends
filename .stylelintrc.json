@@ -1,0 +1,6 @@
+{ 
+  "extends": [
+    "stylelint-config-standard-scss"
+  ],
+  "customSyntax": "@stylelint/postcss-css-in-js"
+}

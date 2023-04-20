@@ -1,0 +1,286 @@
+body {
+  display: flex;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(to left, rgb(7 27 82 / 100%) 0%, rgb(0 128 128 / 100%)  100%);
+  padding-bottom: 5rem;
+}
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-button:decrement
+
+::-webkit-scrollbar-button{
+  background: rgb(18 13 87);
+}
+
+::-webkit-scrollbar-track{
+  border-radius: 10px;
+  background:rgb(18 13 87) ;
+  border-color: rgb(18 13 87);
+}
+
+::-webkit-scrollbar-thumb{
+  background: rgb(69 69 156);
+  border-radius: 10px;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#app-link {
+  text-decoration: none;
+}
+
+#app #robot-title {
+  font-family: "Silkscreen", sans-serif;
+  font-size: 4rem;
+  color:rgb(8 8 46);
+  -webkit-text-stroke: 2rem;
+  -webkit-text-stroke-width: 0.1rem;
+  -webkit-text-stroke-color: white;
+}
+
+#app #robot-title:link {
+  text-decoration: none;
+}
+
+#app #search-box #input {
+  background-color: #afdecd;
+  color: black;
+  padding: 1.25rem 1rem;
+  margin-bottom: 3rem;
+  border: none;
+  border-radius: .25rem;
+  text-decoration: none;
+  width: 25rem;
+  height: 2rem;
+}
+
+#app #search-box #input:focus {
+  outline-style: solid;
+  outline-width: .215rem;
+  outline-color: #4CAF50;
+}
+
+#card-list {
+  padding: 0 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: .7825rem;
+  max-width: 1920px;
+}
+
+@media screen and (max-width: 1850px) {
+  #card-list {
+    max-width: 1385px;
+  }
+}
+
+#card-link {
+  text-decoration: none;
+}
+
+#card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 400px;
+  width: 275px;
+  color: rgb(7 27 82 / 100%);
+  font-family: 'JetBrains Mono', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #afdecd;
+}
+
+#card * {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#card #photo {
+  background-color: #FFFFFF44;
+  border-radius: .25rem;
+}
+
+#card #description {
+  margin: 0;
+  padding: .625rem 0;
+  height: 120px;
+}
+
+#card #name {
+  margin: 0;
+  height: 60px;
+  font-weight: 600;
+  font-size: 1.625rem;
+  text-decoration: none;
+}
+
+#card #username {
+  margin: .825rem 0 .465rem 0;
+  align-items: center;
+  font-size: 1.165rem;
+}
+
+#details {
+  align-items: center;
+  padding: 2.5rem 2.5rem 3.425rem 2.5rem;
+  font-family: 'JetBrains Mono', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(7 27 82 / 100%);
+  background-color: #afdecd;
+  width: 650px;
+}
+
+#details #description {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#details #photo {
+  background-color: #FFFFFF66;
+  border-radius: .25rem;
+}
+
+#details #description #username {
+  margin: 0;
+  padding: 1rem 0;
+  color: rgb(5, 5, 67);
+  font-size: 2.625rem;
+  font-family: "Silkscreen", sans-serif;
+}
+
+#details #description #name {
+  margin: 1rem 0;
+  letter-spacing: .125rem;
+  font-size: 1.625rem;
+  font-weight: 500;
+}
+
+#details #description #job {
+  margin: 1rem 0;
+  letter-spacing: .125rem;
+  font-size: 1.725rem;
+  font-weight: 700;
+}
+
+#details #description #location {
+  margin: 1rem 0;
+  letter-spacing: .125rem;
+  font-size: 1.325rem;
+  font-weight: 500;
+}
+
+#details #description #projects {
+  margin: 1rem 0;
+  font-weight: 700;
+  font-size: 1.415rem;
+}
+
+#details #description #hired-image {
+  opacity: 40%;
+  position: absolute;
+  z-index: 1;
+}
+
+#details #hire-btn {
+  margin: 0rem;
+  background: linear-gradient(to right, rgb(7 27 82 / 60%) 0%, rgb(0 128 128 / 60%)  100%);
+  width: 300px;
+  height: 3.425rem;
+}
+
+#modal {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal:empty {
+  display: none;
+}
+
+#modal > div {
+  background: #afdecd;
+  max-width: 500px;
+  padding: 15px;
+  text-align: center;
+  border-radius: 30px;
+}
+
+#modal .buttons button {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+#modal button {
+  background: linear-gradient(to right, rgb(7 27 82 / 60%) 0%, rgb(0 128 128 / 60%)  100%);
+  padding: 1rem 3rem;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: #333 1px solid;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+#pagination {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+  margin-top: 5rem;
+}
+
+#pagination input {
+  background-color: #afdecd;
+  border: none;
+  border-radius: .25rem;
+  padding: 8px 1px;
+  max-width: 80px;
+}
+
+#pagination button {
+  background-color: #afdecd;
+  border-radius: .25rem;
+  float: left;
+  padding: 8px 16px;
+  border: none;
+}
+
+#pagination button.active {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
+
+#pagination button:hover:not(.active) {
+  background-color: #4CAF50;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#pagination .disabled {
+  pointer-events: none;
+  opacity: 0.40;
+}
